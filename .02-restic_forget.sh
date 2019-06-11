@@ -6,4 +6,5 @@ restic forget --keep-last 20 \
 							--keep-weekly 4 \
 							--keep-monthly 6 \
 							--keep-yearly 3 \
-							--prune
+							--prune \
+							--cleanup-cache

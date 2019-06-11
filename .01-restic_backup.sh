@@ -9,33 +9,38 @@
 
 # --quiet - should speed up backup process
 # https://github.com/restic/restic/pull/1676
-restic backup ~ \
+restic backup /Users/can/ \
 	--exclude-caches \
-	--exclude='~/.abstract' \
-	--exclude='~/.android' \
-	--exclude='~/.bash_sessions' \
-	--exclude='~/.bundle' \
-	--exclude='~/.cabal' \
-	--exclude='~/.cache' \
-	--exclude='~/.config' \
-	--exclude='~/.cups' \
-	--exclude='~/.dbvis' \
-	--exclude='~/.docker' \
-	--exclude='~/.fastlane' \
-	--exclude='~/.gem' \
-	--exclude='~/.ghc' \
-	--exclude='~/.gnupg' \
-	--exclude='~/.gradle' \
-	--exclude='~/.ipython' \
-	--exclude='~/.itmstransporter' \
-	--exclude='~/.local' \
-	--exclude='~/.matplotlib' \
-	--exclude='~/.node-gyp' \
-	--exclude='~/.npm' \
-	--exclude='~/.playground_templates' \
-	--exclude='~/.stack' \
-	--exclude='~/.Trash' \
-	--exclude='~/Library' \
-	--exclude='~/Movies' \
-	--exclude='~/Music' \
-	--exclude='~/Public' \
+	--exclude='/Users/can/.abstract' \
+	--exclude='/Users/can/.android' \
+	--exclude='/Users/can/.bash_sessions' \
+	--exclude='/Users/can/.bundle' \
+	--exclude='/Users/can/.cabal' \
+	--exclude='/Users/can/.cache' \
+	--exclude='/Users/can/.config' \
+	--exclude='/Users/can/.cups' \
+	--exclude='/Users/can/.dbvis' \
+	--exclude='/Users/can/.docker' \
+	--exclude='/Users/can/.fastlane' \
+	--exclude='/Users/can/.gem' \
+	--exclude='/Users/can/.ghc' \
+	--exclude='/Users/can/.gnupg' \
+	--exclude='/Users/can/.gradle' \
+	--exclude='/Users/can/.ipython' \
+	--exclude='/Users/can/.itmstransporter' \
+	--exclude='/Users/can/.ivy2' \
+	--exclude='/Users/can/.local' \
+	--exclude='/Users/can/.matplotlib' \
+	--exclude='/Users/can/.node-gyp' \
+	--exclude='/Users/can/.npm' \
+	--exclude='/Users/can/.playground_templates' \
+	--exclude='/Users/can/.restic' \
+	--exclude='/Users/can/.stack' \
+	--exclude='/Users/can/.Trash' \
+	--exclude='/Users/can/.vim' \
+	--exclude='/Users/can/.zcompcache' \
+	--exclude='/Users/can/Downloads' \
+	--exclude='/Users/can/Library' \
+	--exclude='/Users/can/Movies' \
+	--exclude='/Users/can/Music' \
+	--exclude='/Users/can/Public' \
