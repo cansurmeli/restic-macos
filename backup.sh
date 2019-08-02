@@ -6,3 +6,5 @@ sh ./.01-restic_backup.sh
 sh ./.02-restic_forget.sh
 sh ./.03-restic_check.sh
 sh ./.04-unset.sh
+
+exit 0
