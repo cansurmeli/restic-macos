@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
+# Acknowledge the required environment variables by Restic
 source .00-restic_credentials
 
+# Execute the backup scenario
 sh ./.01-restic_backup.sh
-sh ./.02-restic_forget.sh
-sh ./.03-restic_check.sh
-sh ./.04-unset.sh
-
-exit 0
+sh ./.10-restic_forget.sh
+sh ./.11-restic_check.sh
