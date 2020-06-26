@@ -39,8 +39,10 @@ restic backup /Users/can/ \
 	--exclude='/Users/can/.Trash' \
 	--exclude='/Users/can/.vim' \
 	--exclude='/Users/can/.zcompcache' \
+	--exclude='/Users/can/.zprezto' \
 	--exclude='/Users/can/Downloads' \
 	--exclude='/Users/can/Library' \
 	--exclude='/Users/can/Movies' \
 	--exclude='/Users/can/Music' \
+	--exclude='/Users/can/Pictures' \
 	--exclude='/Users/can/Public' \
