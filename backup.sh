@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Acknowledge the required environment variables by Restic
-source .00-restic_credentials
+source /Users/can/.confidential/restic_credentials
 
 # Execute the backup scenario
 sh ./.01-restic_backup.sh
