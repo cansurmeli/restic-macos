@@ -40,3 +40,4 @@ Thumbs.db
 ##########
 backup.pid
 backup_timestamp
+backup_wrapper
