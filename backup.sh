@@ -8,10 +8,10 @@ FILE_PID=~/.restic_backblaze/backup.pid
 # If file exists meaning there is another backup process running
 if [ -f "$FILE_PID" ]; then
 	if ps -p $(cat $FILE_PID) > /dev/null; then
-		echo $(date + "%Y-%m-%d %T") "WARNING: File $FILE_PID exists. Another backup is probably in progress. Exiting..."
+		echo $(date +"%Y-%m-%d %T") "WARNING: File $FILE_PID exists. Another backup is probably in progress. Exiting..."
 		exit 1
 	else
-		echo $(date + "%Y-%m-%d %T") "STATUS: File $FILE_PID exists BUT process "$(cat $FILE_PID)" not found. Removing the current PID file."
+		echo $(date +"%Y-%m-%d %T") "STATUS: File $FILE_PID exists BUT process "$(cat $FILE_PID)" not found. Removing the current PID file."
 		rm ~/.restic_backblaze/backup.pid
 	fi
 fi
