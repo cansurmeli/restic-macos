@@ -4,7 +4,7 @@ import UserNotifications
 
 let task = Process()
 task.launchPath = "/bin/bash"
-task.arguments = ["/Users/can/.restic/backup.sh"]
+task.arguments = ["/Users/can/.restic_backblaze/backup.sh"]
 
 do {
     try task.run()

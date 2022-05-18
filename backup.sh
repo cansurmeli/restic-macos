@@ -3,7 +3,7 @@
 ##################################
 # Avoid running multiple backups #
 ##################################
-FILE_PID=~/.restic/backup.pid
+FILE_PID=~/.restic_backblaze/backup.pid
 
 # If file exists meaning there is another backup process running
 if [ -f "$FILE_PID" ]; then
@@ -12,7 +12,7 @@ if [ -f "$FILE_PID" ]; then
 		exit 1
 	else
 		echo $(date + "%Y-%m-%d %T") "File $FILE_PID exists BUT process "$(cat $FILE_PID)" not found. Removing the current PID file."
-		rm ~/.restic/backup.pid
+		rm ~/.restic_backblaze/backup.pid
 	fi
 fi
 
@@ -25,7 +25,7 @@ echo $(date +"%Y-%m-%d %T") "A new backup has started."
 ########################
 # Add a time condition #
 ########################
-FILE_TIME_STAMP=~/.restic/backup_timestamp
+FILE_TIME_STAMP=~/.restic_backblaze/backup_timestamp
 
 if [ -f "$FILE_TIME_STAMP" ]; then
 	time_run=$(cat "$FILE_TIME_STAMP")
@@ -76,4 +76,4 @@ echo $(date +"%Y-%m-%d %T") "Backup has finished."
 echo $(date -v +10H +"%s") > $FILE_TIME_STAMP
 
 # Remove the PID file for another backup later
-rm ~/.restic/backup.pid
+rm ~/.restic_backblaze/backup.pid
