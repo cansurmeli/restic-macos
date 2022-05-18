@@ -57,7 +57,10 @@ fi
 ####################
 # Grab the secrets #
 ####################
-source /Users/can/.confidential/restic_credentials_backblaze
+export B2_ACCOUNT_ID=$(security find-generic-password -s backup-restic-backblaze-account-id -w)
+export B2_ACCOUNT_KEY=$(security find-generic-password -s backup-restic-backblaze-account-key -w)
+export RESTIC_PASSWORD=$(security find-generic-password -s backup-restic-backblaze-repository-password -w)
+export RESTIC_REPOSITORY=$(security find-generic-password -s backup-restic-backblaze-repository -w)
 
 ###############################
 # Execute the backup scenario #
