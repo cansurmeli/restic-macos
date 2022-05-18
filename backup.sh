@@ -8,10 +8,10 @@ FILE_PID=~/.restic_backblaze/backup.pid
 # If file exists meaning there is another backup process running
 if [ -f "$FILE_PID" ]; then
 	if ps -p $(cat $FILE_PID) > /dev/null; then
-		echo $(date + "%Y-%m-%d %T") "File $FILE_PID exists. Another backup is probably in progress."
+		echo $(date + "%Y-%m-%d %T") "WARNING: File $FILE_PID exists. Another backup is probably in progress. Exiting..."
 		exit 1
 	else
-		echo $(date + "%Y-%m-%d %T") "File $FILE_PID exists BUT process "$(cat $FILE_PID)" not found. Removing the current PID file."
+		echo $(date + "%Y-%m-%d %T") "STATUS: File $FILE_PID exists BUT process "$(cat $FILE_PID)" not found. Removing the current PID file."
 		rm ~/.restic_backblaze/backup.pid
 	fi
 fi
@@ -20,7 +20,7 @@ fi
 echo $$ > $FILE_PID
 
 # Report about backup start
-echo $(date +"%Y-%m-%d %T") "A new backup has started."
+echo $(date +"%Y-%m-%d %T") "STATUS: A new backup has started."
 
 ########################
 # Add a time condition #
@@ -29,9 +29,10 @@ FILE_TIME_STAMP=~/.restic_backblaze/backup_timestamp
 
 if [ -f "$FILE_TIME_STAMP" ]; then
 	time_run=$(cat "$FILE_TIME_STAMP")
-	time_current=$(date +  "%s")
+	time_current=$(date +"%s")
 
 	if [ "$time_current" -lt "$time_run" ]; then
+		echo $(date +"%Y-%m-%d %T") "WARNING: Backup probably manually started. Not enough time has elapsed after the latest backup. Exiting..."
 		exit 2
 	fi
 fi
@@ -73,7 +74,7 @@ sh ./.11-restic_check.sh
 # Finishing Touches #
 #####################
 # Report about the backup end
-echo $(date +"%Y-%m-%d %T") "Backup has finished."
+echo $(date +"%Y-%m-%d %T") "STATUS: Backup has finished."
 
 # At which interval to run the script: adds a 10 hour threshold
 echo $(date -v +10H +"%s") > $FILE_TIME_STAMP
