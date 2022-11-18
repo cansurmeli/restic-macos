@@ -40,8 +40,8 @@ fi
 ###################################
 # Backup only on trusted networks #
 ###################################
-# For debugging:
-#		$ networksetup -listallhardwareports
+# For debugging purposes:
+#	$ networksetup -listallhardwareports
 if [[ $(networksetup -getairportnetwork en1 | grep -E "Los Pollos Hermanos") == "" ]]; then
   echo $(date +"%Y-%m-%d %T") "WARNING: Backups are NOT allowed within untrusted networks. Exiting..."
   exit 3
@@ -58,10 +58,18 @@ fi
 ####################
 # Grab the secrets #
 ####################
+# METHOD 1
+# 	The default and preferred way is to store your secrets in the Keychain
 export B2_ACCOUNT_ID=$(security find-generic-password -s backup-restic-backblaze-account-id -w)
 export B2_ACCOUNT_KEY=$(security find-generic-password -s backup-restic-backblaze-account-key -w)
 export RESTIC_PASSWORD=$(security find-generic-password -s backup-restic-backblaze-repository-password -w)
 export RESTIC_REPOSITORY=$(security find-generic-password -s backup-restic-backblaze-repository -w)
+
+# METHOD 2
+# 	However, you can also use a simple file to store them. Name the file
+# `credentials_template` to `.credential` and source it while commenting
+# out the above Keychain method. Use at your own peril!
+# source .credentials
 
 ###############################
 # Execute the backup scenario #
@@ -73,7 +81,7 @@ sh ./.11-restic_check.sh
 #####################
 # Finishing Touches #
 #####################
-# Report about the backup end
+# Report about the backup ending
 echo $(date +"%Y-%m-%d %T") "STATUS: Backup has finished."
 
 # At which interval to run the script: adds a 10 hour threshold
