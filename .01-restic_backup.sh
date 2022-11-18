@@ -1,5 +1,3 @@
-#http://taobackup.com/
-
 # Exclusion in the context of backing up is a highly debatable subject. and Tao of Backup states that everything should be backed up regardless.
 # Even though, Tao of Backup makes some pretty reasonable points in backign up in general, I find excluding some files/folders plausable.
 # There are a lot of garbage/cache that comes with our installations these days.
