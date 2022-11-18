@@ -1,14 +1,21 @@
-# Exclusion in the context of backing up is a highly debatable subject. and Tao of Backup states that everything should be backed up regardless.
-# Even though, Tao of Backup makes some pretty reasonable points in backign up in general, I find excluding some files/folders plausable.
-# There are a lot of garbage/cache that comes with our installations these days.
-# They'll cover a lot more space adn more over, they'll reuqire more time to backup since they constantly change.
-# Therefore, I conclude by saying things can be excluded.
-# However, you're encouraged to read Tao of Backup and come to your own conclusion.
+#
+#	This command simply runs a backup process with restic.
+#
+#	I don't follow the initial lesson of `Coverage` from `Tao
+# of Backup` mentioned in the README. Maybe I am silly but I
+# assume the times have changed and it is quite easy to re-install
+# a machine with a fast internet connection. Time will tell. :]
+#
+# ADDITIONAL PARAMETER(s)
+# 	- --quiet - do not output comprehensive progress report
 
-# --quiet - should speed up backup process
-# https://github.com/restic/restic/pull/1676
+# RESOUCES
+#	- https://restic.readthedocs.io/en/stable/040_backup.html
+#	- https://github.com/restic/restic/pull/1676
+#
+
 restic backup /Users/can/ \
-	--exclude-caches \
+	--exclude-caches \						# exclude cache directories
 	--exclude='/Users/can/.abstract' \
 	--exclude='/Users/can/.android' \
 	--exclude='/Users/can/.bash_sessions' \
