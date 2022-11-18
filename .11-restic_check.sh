@@ -1,4 +1,4 @@
-
+#
 #   The `check` command of restic tests the repository against
 # errors and reports if any are found.
 #

@@ -1,16 +1,20 @@
-# remove outdated snapshots
-# --keep-last 20 - there won't be probably more hourly snapshots in last two days than 20
-# --prune - delete repositories which should be forgotten
+#
+#	The `forget` command of restic removes snapshots from the
+# repository. The removal is done based on the defined parameters.
+#
+# 	The purpose here is to manage your storage space. Sure, data
+# storage is cheaper than ever and keep getting cheaper and cheaper
+# BUT it is not infinite. Hence, needs to be managed.
+#
+#	RESOURCES
+#	- https://restic.readthedocs.io/en/latest/060_forget.html
+#	- https://man.archlinux.org/man/restic-forget.1.en
+#
 
-# --keep-last n never delete the n last (most recent) snapshots
-# --keep-daily n for the last n days which have one or more snapshots, only keep the last one for that day.
-# --keep-weekly n for the last n weeks which have one or more snapshots, only keep the last one for that week.
-# --keep-monthly n for the last n months which have one or more snapshots, only keep the last one for that month.
-# --keep-yearly n for the last n years which have one or more snapshots, only keep the last one for that year.
-restic forget --keep-last 20 \
-							--keep-daily 3 \
-							--keep-weekly 2 \
-							--keep-monthly 3 \
-							--keep-yearly 1 \
-							--prune \
-							--cleanup-cache
+restic forget --keep-last 20 \		# keep the last n snapshots
+			  --keep-daily 3 \		# keep the last n daily snapshots
+			  --keep-weekly 2 \		# keep the last n weekly snapshots
+			  --keep-monthly 3 \	# keep the last n monthly snapshots
+			  --keep-yearly 1 \		# keep the last n yearly snapshots
+			  --prune \				# delete repositories which should be forgotten
+			  --cleanup-cache		# auto remove old cache directories
