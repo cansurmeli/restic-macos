@@ -14,6 +14,8 @@
 # and upload.
 #
 #   RESOURCE(s)
+#   - https://restic.readthedocs.io/en/latest/045_working_with_repos.html#checking-integrity-and-consistency
 #   - https://forum.restic.net/t/limiting-b2-transactions/209/4
+#   - https://man.archlinux.org/man/restic-check.1.en
 
 restic check --with-cache   # limits Class B Transactions on BackBlaze B2
