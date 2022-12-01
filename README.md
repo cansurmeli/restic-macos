@@ -57,6 +57,7 @@ I started this as my own approach but in due time, I found ideas to improve. I w
 
 - https://www.grzegorowski.com/restic-backblaze-b2-backups
 - https://szymonkrajewski.pl/macos-backup-restic/
+- http://taobackup.com/
 
 
 
